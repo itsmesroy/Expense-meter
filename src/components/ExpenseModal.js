@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "../App.css";
-import ExpenseForm from "./ExpenseForm.js";
-function ExpenseModal({isOpen,onClose,addExpense,editExpense,expenseToEdit,walletBalance,enqueueSnackbar,}) {
+import ExpenseForm from "./ExpenseForm";
+function ExpenseModal({
+  isOpen,
+  onClose,
+  addExpense,
+  editExpense,
+  expenseToEdit,
+  walletBalance,
+  enqueueSnackbar,
+}) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
-
-  const resetModalState = () => {
-    setTitle("");
-    setAmount("");
-    setCategory("");
-    setDate("");
-  };
 
   useEffect(() => {
     if (expenseToEdit) {
@@ -26,7 +27,13 @@ function ExpenseModal({isOpen,onClose,addExpense,editExpense,expenseToEdit,walle
     }
   }, [expenseToEdit, isOpen]);
 
-  
+  const resetModalState = () => {
+    setTitle("");
+    setAmount("");
+    setCategory("");
+    setDate("");
+  };
+
   const handleSubmit = (expense) => {
     if (expenseToEdit) {
       editExpense(expense);

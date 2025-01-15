@@ -54,7 +54,8 @@ function App() {
       expense.id === updatedExpense.id ? updatedExpense : expense
     );
     setExpenses(updatedExpenses);
-    localStorage.setItem("expenses", JSON.stringify(updatedExpenses))};
+    localStorage.setItem("expenses", JSON.stringify(updatedExpenses))
+  };
 
     const removeExpense = (expenseId) => {
       const updatedExpenses = expenses.filter(
@@ -71,10 +72,10 @@ function App() {
       <div className="Container">
 
         <div className="row align-items-center ">
-          <div className="col-md-6 text-start">
+          <div className="col-sm">
             <div className="wallet-balance">
               <h2>
-                <div>Wallet Balance: ₹ {walletBalance}</div>
+                Wallet Balance: ₹ {walletBalance}
               </h2>
               <button
                 className="button"
@@ -95,9 +96,12 @@ function App() {
             </div>
           </div>
 
-          <div className="col-md-6 text-start">
-            <div className="add-expense">
-              <h1>Expenses:</h1>
+          <div className="col-sm">
+            <div className="add-expense">              
+              <h2>Expenses: ₹  {expenses.reduce(
+                    (total, expense) => total + expense.amount,
+                    0
+                  )}</h2>
               <button type="button" onClick={openExpenseModal}style={{  background:
                    "linear-gradient(90deg, #FF9595 0%, #FF4747 80%, #FF3838 100%)",
                     color: "#fff",
@@ -107,9 +111,10 @@ function App() {
                     cursor: "pointer",
                     fontWeight: "bold",}}>
                 +Add Expense
-              </button>
+              </button>              
             </div>
           </div>
+
 
 
         </div>
@@ -121,7 +126,7 @@ function App() {
       
       <ExpenseModal
       isOpen={isExpenseModalOpen}
-      onClose={closeExpenseModal}
+      onClose={closeEditExpenseModal}
       addExpense={addExpense}
       editExpense={editExpense}
       expenseToEdit={expenseToEdit}
