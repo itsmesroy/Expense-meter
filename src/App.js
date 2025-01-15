@@ -118,6 +118,7 @@ function App() {
                 onClick={openIncomeModal} >
                 +Add Income
               </button>
+
             </div>
           </div>
 
@@ -144,7 +145,7 @@ function App() {
                   }}
                 >
                   + Add Expense
-                </button>          
+                </button>    
             </div>
           </div>
           <div className="col-sm">
@@ -152,7 +153,7 @@ function App() {
           </div>
         </div>
 
-        <div className="Lower Section">         
+        <div className="lower-section">         
             <div
               className="recent-transactions"            
             >
@@ -198,7 +199,7 @@ function App() {
         onClose={closeDeleteExpenseModal}
         onDelete={removeExpense}
         expenseId={expenseToDelete}
-      />
+      /> 
     </div>
   );
 }
