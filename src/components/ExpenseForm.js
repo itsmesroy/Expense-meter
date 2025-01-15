@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
+  
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
