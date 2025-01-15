@@ -1,0 +1,120 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* My css */
+
+.Container{
+
+  background:var(--primary-bg-color);
+  padding:24px;
+  min-height: 100vh;
+}
+.wallet-balance, .add-expense{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #bfbfbf;
+  width: 100%;
+}
+h2{
+  padding: 9px;
+}
+.App{
+  background-color: #303030;
+  color: white
+}
+.row{
+  background-color: #595959;  
+  border-radius: 40px;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  margin: 1%;
+}
+
+.button{  
+  border-radius: 7px;
+  border: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(78, 69, 69, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+}
+
+@media (max-width: 768px){
+  .wallet-balance .add-expense{
+    width: 100%;
+    margin: 1% 0;
+  }
+}
