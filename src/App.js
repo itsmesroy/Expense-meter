@@ -93,7 +93,7 @@ function App() {
   const {enqueueSnackbar} =useSnackbar();
   return (
     <div className="App">
-        <h2>Expense Tracker</h2>
+        <h1>Expense Tracker</h1>
       <div className="Container">
 
         <div className="row align-items-center ">
@@ -116,7 +116,7 @@ function App() {
                   fontWeight: "bold",
                 }}
                 onClick={openIncomeModal} >
-                +Add Income
+                + Add Income
               </button>
 
             </div>

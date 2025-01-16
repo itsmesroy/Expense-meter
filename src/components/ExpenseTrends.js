@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from "recharts";
 
 function ExpenseTrends({ expenses }) {
   const groupedByCategory = expenses.reduce((acc, expense) => {
@@ -31,7 +22,7 @@ function ExpenseTrends({ expenses }) {
 
   return(
     <div className="expense-trends">
-      <h2 style={{ fontStyle: "italic" }}>Top Expenses</h2>
+      <div><h2 style={{ fontStyle: "italic" }}>Top Expenses</h2></div>
       <ResponsiveContainer width="80%" height={250}>
         <BarChart data={data} layout="vertical">
           <CartesianGrid strokeDasharray="3 3" />

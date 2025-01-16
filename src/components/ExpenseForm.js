@@ -26,6 +26,14 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
       return;
     }
 
+    const resetForm = () => {
+      setTitle("");
+      setAmount("");
+      setCategory("");
+      setDate("");
+      setError("");
+    };
+
     const newExpense = {
       id: Date.now(),
       title,
@@ -33,19 +41,12 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
       category,
       date,
     };
-
+    console.log("Submitting Expense:", newExpense);
     addExpense(newExpense);
-    resetForm();
+    // resetForm();
     closeExpenseModal();
   };
 
-  const resetForm = () => {
-    setTitle("");
-    setAmount("");
-    setCategory("");
-    setDate("");
-    setError("");
-  };
 
   return (
     <div className="modal">
@@ -55,7 +56,8 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
         <div className="input-group" style={{ display: "flex", gap: "10px" }}>
           <input
             type="text"
-            placeholder="title"
+            placeholder="Title"
+            name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />

@@ -111,6 +111,7 @@ h2{
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  text-align: center;
 }
 
 .modal-buttons button {
