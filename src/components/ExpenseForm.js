@@ -43,7 +43,7 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
     };
     console.log("Submitting Expense:", newExpense);
     addExpense(newExpense);
-    // resetForm();
+     resetForm();
     closeExpenseModal();
   };
 
@@ -64,6 +64,7 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
           <input
             type="number"
             placeholder="price"
+            name="price"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
@@ -73,6 +74,7 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             placeholder="Select Category"
+            name="category"
           >
             <option value="">Select Category</option>
             <option value="Food">Food</option>
@@ -83,6 +85,7 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
           </select>
           <input
             type="date"
+            name="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             placeholder="dd/mm/yyyy"
