@@ -68,11 +68,12 @@ function App() {
   };
 
 
-  const addExpense=(expense)=>{
+  const addExpense = (expense) => {
     const newExpense = { ...expense, id: new Date().getTime() };
     const newExpenses = [...expenses, newExpense];
     setExpenses(newExpenses);
-    localStorage.setItem("expenses", JSON.stringify(newExpenses))};
+    localStorage.setItem("expenses", JSON.stringify(newExpenses));
+  };
 
   const editExpense=(updatedExpense)=>{
     const updatedExpenses = expenses.map((expense) =>

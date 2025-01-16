@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
-  
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -16,23 +15,18 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
       return;
     }
 
+
     if (isNaN(amount) || parseFloat(amount) <= 0) {
       setError("Please enter a valid amount.");
       return;
     }
+
 
     if (parseFloat(amount) > walletBalance) {
       setError("Insufficient wallet balance.");
       return;
     }
 
-    const resetForm = () => {
-      setTitle("");
-      setAmount("");
-      setCategory("");
-      setDate("");
-      setError("");
-    };
 
     const newExpense = {
       id: Date.now(),
@@ -41,22 +35,30 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
       category,
       date,
     };
-    console.log("Submitting Expense:", newExpense);
+
     addExpense(newExpense);
-     resetForm();
+    resetForm();
     closeExpenseModal();
   };
 
+  const resetForm = () => {
+    setTitle("");
+    setAmount("");
+    setCategory("");
+    setDate("");
+    setError("");
+  };
 
-  return (
+  return(
     <div className="modal">
       <h2>Add Expense</h2>
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit} className="expense-form">
-        <div className="input-group" style={{ display: "flex", gap: "10px" }}>
+      <div className="input-group" style={{ display: "flex", gap: "10px" }}>
+       
           <input
             type="text"
-            placeholder="Title"
+            placeholder="title"
             name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -68,43 +70,39 @@ function ExpenseForm({ addExpense, closeExpenseModal, walletBalance }) {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
+       
         </div>
         <div style={{ display: "flex", gap: "10px" }}>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            placeholder="Select Category"
-            name="category"
-          >
-            <option value="">Select Category</option>
-            <option value="Food">Food</option>
-            <option value="Transport">Transport</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Bills">Bills</option>
-          </select>
-          <input
-            type="date"
-            name="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            placeholder="dd/mm/yyyy"
-          />
+        <select
+          value={category}
+          name="category"
+          onChange={(e) => setCategory(e.target.value)}
+          placeholder="Select Category"
+        >
+          <option value="">Select Category</option>
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Bills">Bills</option>
+        </select>
+        <input
+          type="date"
+          value={date}
+          name="date"
+          onChange={(e) => setDate(e.target.value)}
+          placeholder="dd/mm/yyyy"
+        />
         </div>
 
         <div className="modal-buttons">
-          <button
-            type="submit"
-            className="btn add-button"
-            style={{ width: "250px", backgroundColor: "#F4BB4A" }}
-          >
+          <button type="submit" className="btn add-button" style={{ width: "250px" , backgroundColor:"#F4BB4A"}}>
             Add Expense
           </button>
           <button
             type="button"
             onClick={closeExpenseModal}
-            className="btn cancel-button"
-            style={{ width: "100px" }}
+            className="btn cancel-button"style={{ width: "100px" }}
           >
             Cancel
           </button>

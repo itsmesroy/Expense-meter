@@ -12,8 +12,7 @@ function ExpenseList( {expenses, onEdit, onDelete} ){
         {expenses.map((expense) => (
           <ExpenseItem key={expense.id} expense={expense} onDelete={onDelete} onEdit={onEdit}
           />
-        ))
-}
+        ))}
     </div>
   );
 }

@@ -46,14 +46,14 @@ function ExpenseItem({ expense, onEdit, onDelete }) {
           <button
             onClick={() => onEdit(expense)}
             className="btn edit-button"
-             style={{ backgroundColor: "transparent", border: "none", padding: "0" }}
+            style={{ backgroundColor: "transparent", border: "none", padding: "0" }}
           >
             <img src={editIcon} alt="edit-button" />
           </button>
           <button
             onClick={() => onDelete(expense.id)}
             className="btn delete-button"
-             style={{ backgroundColor: "transparent", border: "none", padding: "0" }}
+            style={{ backgroundColor: "transparent", border: "none", padding: "0" }}
           >
             <img src={deleteIcon} alt="delete-button" />
           </button>
